@@ -1,0 +1,25 @@
+<html> 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body><div align="center">
+	<object id="player" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" name="player" width="720" height="405">
+		<param name="movie" value="{$tplpath}pl.swf" />
+		<param name="allowfullscreen" value="true" />
+		<param name="allowscriptaccess" value="always" />
+        <param name="flashvars" value="file={$webpath}{$trailer}&image={$picurl}"/>
+		<embed
+			type="application/x-shockwave-flash"
+			id="player2"
+			name="player2"
+			src="{$tplpath}pl.swf" 
+			width="720" 
+			height="405"
+			allowscriptaccess="always" 
+			allowfullscreen="true"
+			flashvars="file={$webpath}{$trailer}&image={$picurl}" 
+		/>
+    </object>
+</div>    
+</body>
+</html>

@@ -1,0 +1,5 @@
+[ 2013-10-21T14:55:24+08:00 ] ERR: (ThinkException) 模板不存在[./template/boostrap/Home/video_detail.html]
+[ 2013-10-21T15:33:30+08:00 ] ERR: (ThinkException) 模板不存在[./template/boostrap/Home/video_channel.html]
+[ 2013-10-21T15:57:08+08:00 ] ERR: (ThinkException) 模板不存在[./template/boostrap/Home/top10.html]
+[ 2013-10-21T15:57:12+08:00 ] ERR: (ThinkException) 模板不存在[./template/boostrap/Home/special_list.html]
+[ 2013-10-21T15:57:17+08:00 ] ERR: (ThinkException) 模板不存在[./template/boostrap/Home/video_list.html]

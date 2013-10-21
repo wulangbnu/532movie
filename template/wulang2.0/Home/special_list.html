@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$webtitle}</title>
+<meta name="keywords" content="{$ckeywords}{$keywords}">
+<meta name="description" content="{$cdescription}{$description}">
+<link rel="shortcut icon" href="{$webpath}favicon.png" />
+<link rel="stylesheet" type="text/css" href="{$tplpath}top.css" />
+<link rel="stylesheet" type="text/css" href="{$tplpath}list.css" />
+
+<include file="system" />
+</head>
+<body>
+<include file="header" />
+<div class="box_n">
+	<div class="main_n">
+		<div class="list_l">
+			
+			<div class="ranks j-rank"><h4>热门专题排行</h4>
+				<ol>
+				<gxcms name="special"  limit="10" order="hits desc">
+                
+				<li><span>{$special.addtime|get_color_date='m-d',###}</span><a href="{$special.readurl}" title="{$special.title}">{$special.title|get_replace_html=0,12}</a></li>
+				
+				 </gxcms> 
+				</ol>
+			</div>
+			
+			<div class="ranks j-rank"><h4>热门影视排行</h4>
+				<ol>
+				<gxcms name="video" cid="1,2,3,4,5,6" limit="10" order="hits desc"> 
+               <li><span>{$video.hits}℃</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,15}</a></li>
+             </gxcms>
+		</ol>
+			</div>
+			
+			
+		</div>
+
+		<div class="list_r">
+			<div class="longtit">
+				<div class="fl">您现在的位置{$navtitle}</div>
+				<div class="fr aves">
+				</div>
+			</div>
+            <ol class="on" id="tabx_c_1">
+          <div class="soyall">
+          <ul class="special_list">
+            <gxlist name="special" limit="10" order="addtime">
+            <li <if condition="$i%3 eq 0">class="no"</if>><a href="{$special.readurl}" target='_blank'>
+			<img src="{$special.logo}"  onerror="this.src='{$webpath}views/images/nophoto.jpg'" width="300" height="160" /></a>
+			<a href="{$special.readurl}"  target='_blank'>{$special.title}</a>
+			</li>
+            </gxlist>
+          </ul>
+          
+		  <if condition="$count gt 10"><div class="page">{$pages}</div></if>	
+         
+		  </div>
+		   
+           </ol>
+		
+		</div>
+	</div>
+</div>
+<include file="footer" />
+</body>
+</html>

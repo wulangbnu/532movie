@@ -1,0 +1,82 @@
+/**全局**/
+body{font-family: "Microsoft Yahei";}
+
+
+/**首页导航 index_header**/
+.index_header .navbar-inner{
+	background: url(../img/header-bg.png) 0 0 repeat-x;
+	border: 0px;
+}
+.index_header .navbar-inner ul li a,.index_header .navbar-inner .brand{
+	color: white;
+}
+.index_header .navbar-inner ul li a:hover,.index_header .navbar-inner .brand:hover{
+	background-color: rgba(0, 0, 0, 0.3);
+	color: #BBB;
+}
+.index_header .nav .active > a,.index_header .nav .active > a:hover,.index_header .nav .active > a:focus {
+	color: white;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+.index_header .navbar-search .search-query {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+/**首页 幻灯片 myCarousel**/
+#myCarousel .carousel-control{
+	font-size: 797%;
+	border: 0px;
+	background: transparent;
+}
+#myCarousel .carousel-indicators {
+	position: absolute;
+	top: 93%;
+	right: 50%;
+	z-index: 25;
+	margin: 0;
+	list-style: none;
+}
+#myCarousel .mycarousel-caption{
+	position: absolute;
+	height: 30%;
+	width: 40%;
+	bottom: 8%;
+	left: 5%;
+	background-color: rgba(0, 0, 0, 0);
+	font-size: 120%;
+	line-height: 1.5em;
+	color: white;
+}
+
+
+/**首页 缩略图**/
+.index_thumbnails h3{
+	background:url(../img/line3.jpg) repeat-x bottom;
+}
+.index_thumbnails h3 ul li a,.index_thumbnails h3 span{
+	font-size: 14px;
+	color: #333;
+	font-weight: normal;
+}
+.index_thumbnails .thumbnail{
+	border: none;
+	padding: 0px;
+}
+.index_thumbnails h3 .nav {
+	margin-bottom: 0px;
+}
+
+/**图片缓冲**/
+.loading {
+	background: url(../img/loading.gif) no-repeat center;
+}
+
+.navbar-inverse .nav > li > a:hover,.navbar-inner .brand:hover{
+	background-color: #111;
+}
+
+/**footer**/
+.footer{
+	margin-bottom: 0px;
+}
+

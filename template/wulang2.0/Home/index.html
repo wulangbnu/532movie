@@ -1,0 +1,366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$webtitle}</title>
+<meta name="keywords" content="{$keywords}" />
+<meta name="description" content="{$description}" />
+<link rel="shortcut icon" href="{$webpath}favicon.png" />
+<link rel="stylesheet" type="text/css" href="{$tplpath}top.css" />
+<link rel="stylesheet" type="text/css" href="{$tplpath}index.css" />
+<link rel="stylesheet" type="text/css" href="{$tplpath}all.css" />
+<include file="system" />
+<script type="text/javascript" src="{$tplpath}core.js"></script>
+<style type="text/css">
+<!--
+.STYLE2 {font-family: "微软雅黑"}
+.left li{float:left;width:140px;margin-left:3px;line-height:30px;}
+-->
+</style>
+
+</head>
+<body>
+<include file="header" />
+<!-- flash幻灯开始 -->
+
+<div class="Boxflash">
+  <div class="Aflash">
+    <ul class="picUL">
+      <li class="picLI" id="j-focusPic">
+        <div class="picbox j-slider">
+		<gxcms name="slide" limit="8" order="oid desc">
+			<span class="j-item"><a target="_blank" href="{$slide.link}" title="{$slide.title}"><img alt="{$slide.title}" width="970" src="{$slide.picurl}"></a></span>
+			</gxcms>
+		</div>
+        <div class="bg j-infobg"></div>
+        <div class="info j-info"></div>
+        <div class="info j-infocontainer" style="display:none;">
+		<gxcms name="slide" limit="8" order="oid desc">
+			<div class="infotxt w"><h2><a target="_blank" href="{$slide.link}" title="{$slide.title}">{$slide.title}</a></h2><p><a target="_blank" href="{$slide.link}" title="{$slide.title}">{$slide.content|get_replace_html=0,80}</a></p></div>
+			</gxcms>
+		</div>
+      </li>
+    </ul>
+    <div class="infobtn" id="j-focusBtns">
+      <div class="smalpic j-container">
+        <div class="smallbox j-slider">
+            <a class="j-item">1</a><a class="j-item">2</a><a class="j-item">3</a><a class="j-item">4</a><a class="j-item">5</a><a class="j-item">6</a><a class="j-item">7</a><a class="j-item">8</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- flash幻灯结束,热门开始 -->
+<div class="DoboShow">
+  <div class="title">
+      <h2 class="H201"></h2>
+      	<div class="fr" style="color: #992A2C">本站共收录影片总数 [{:get_channel_count(-1)}] 部 今天更新 [{:get_channel_count(0)}] 部</div>
+  </div>
+ 
+
+
+  <div class="list">
+	<gxcms name="video" limit="28" order="weekhits desc,stars desc,addtime desc">
+    <lt name="i" value="8"><dl class="w128"><dt><a href="{$video.readurl}" target="_blank" title="{$video.title}"><img alt="{$video.title}" src="{$video.picurl}"  onerror="this.src='{$webpath}views/images/nophoto.jpg'" class="loading"></a></dt><dd><p class="p1"><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,7}</a></p><p class="p2"></p></dd></dl>
+				  <else />
+				<dl class="w128"><dd><p class="p1 left"><a href="{$video.readurl}" target="_blank" title="{$video.title}">·{$video.title|get_replace_html=0,8}</a></p></dd></dl></eq></lt></gxcms> 
+				</div>
+
+</div>
+
+<!-- 热门结束,最近更新开始 -->
+<div class="DoboShow">
+	<div class="title">
+		<h2 class="H212">最新</h2>
+		<div class="fr"></div>
+    </div>
+
+    <div class="list">
+	 <gxcms name="video"  limit="28" order="addtime desc">
+     <lt name="i" value="8"><dl class="w128"><dt><a href="{$video.readurl}" target="_blank" title="{$video.title}"><img alt="{$video.title}" src="{$video.picurl}"  onerror="this.src='{$webpath}views/images/nophoto.jpg'" class="loading"></a></dt><dd><p class="p1"><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,7}</a></p><p class="p2"></p></dd></dl>
+				  <else />
+				<dl class="w128"><dd><p class="p1 left"><a href="{$video.readurl}" target="_blank" title="{$video.title}">·{$video.title|get_replace_html=0,8}</a></p></dd></dl></eq></lt></gxcms> 
+				</div>
+</div>
+
+
+
+<!--电影-->
+<div class="Movie">
+  <div class="left">
+    <div class="title">
+	
+	<h2 class="H204">
+		<span><a href="{$webpath}?s=video/lists/id/8.html" >动作片</a> | <a href="{$webpath}?s=video/lists/id/9.html" >喜剧片</a> | <a href="{$webpath}?s=video/lists/id/10.html" >爱情片</a> | <a href="{$webpath}?s=video/lists/id/11.html" >科幻片</a> | <a href="{$webpath}?s=video/lists/id/12.html" >剧情片</a> | <a href="{$webpath}?s=video/lists/id/13.html" >恐怖片</a> | <a href="{$webpath}?s=video/lists/id/14.html" >战争片</a> | <a target="_blank" href="{$webpath}?s=video/lists/id/1.html" title="更多&gt;&gt;">更多&gt;&gt;</a></span></h2>
+    </div>
+    <div class="viscera">
+      <div class="LiInfo">
+        <div class="list">
+		 <gxcms name="video" cid="1" stars="5" limit="1" order="weekhits desc">
+                 <dl class="w210">
+                     <dt><a href="{$video.readurl}" target="_blank" title="{$video.title}"><img alt="{$video.title}" src="{$video.picurl}"  onerror="this.src='{$webpath}views/images/nophoto.jpg'" class="loading"></a></dt>
+			</dl>
+			<div class="ind">
+            <h6>{$video.title|get_replace_html=0,7}</h6>
+            <p class="p1">
+			{$video.content|get_replace_html=0,40,'utf-8',true}...</p>
+			<h6>导演</h6>
+            <p class="p1">{$video.director}</p>
+            <h6>主演</h6>
+            <p class="p1">{$video.actor}</p>
+            <h6>影片人气：<strong style="color:#ff0000">{$video.hits}℃</strong></h6>
+          </div>
+		</gxcms>
+        </div>
+      </div>
+      <div class="texInfo">
+        <div class="list">
+		 <gxcms name="video" cid="1"  limit="6" order="addtime desc">
+         <dl class="w128"><dt><a href="{$video.readurl}" target="_blank" title="{$video.title}"><img alt="{$video.title}" src="{$video.picurl}"  onerror="this.src='{$webpath}views/images/nophoto.jpg'" class="loading"></a></dt><dd><p class="p1"><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,7}</a></p><p class="p2"></p></dd></dl>
+                    </gxcms> 
+		</div>
+        <div class="list">
+		<gxcms name="video" cid="1"  limit="7,9" order="addtime desc">
+		<dl class="w128"><dd><em><a href="{$video.readurl}" target="_blank" title="{$video.title}">·{$video.title|get_replace_html=0,8}</a></em></dd></dl>
+		</gxcms> 		
+		</div>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    
+    <div class="rank" id="j-rankmovie">
+      <h4><span><a class="active" href="javascript:void(0);">周</a> <a href="javascript:void(0);">月</a> <a href="javascript:void(0);">总</a></span><em class="e06"><a  target="_blank" title="电影排行">电影排行</a></em></h4>
+       <ol class="active">
+	    <gxcms name="video" limit="20" cid="1" order="weekhits desc">
+                   <li><span>{$video.weekhits}℃</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,13}</a></li>
+                    </gxcms>
+		</ol>
+      <ol>
+		 <gxcms name="video" limit="20" cid="1" order="monthhits desc">
+                   <li><span>{$video.monthhits}℃</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,13}</a></li>
+                    </gxcms>
+					  </ol>
+      <ol>
+		 <gxcms name="video" limit="20" cid="1" order="hits desc">
+                   <li><span>{$video.hits}℃</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,13}</a></li>
+                    </gxcms>
+					 </ol>
+    </div>
+  </div>
+</div>
+
+
+<!-- 没有电视剧 -->
+
+<!-- 动漫 -->
+<div class="Comic">
+  <div class="left">
+    <div class="title">
+       <h2 class="H205">
+	   <span><a target="_blank" href="{$webpath}?s=video/lists/id/3.html" title="更多&gt;&gt;">更多&gt;&gt;</a></span></h2>
+    </div>
+    <div class="viscera">
+      <div class="texInfos">
+        <div class="list">
+		<gxcms name="video" cid="3" limit="10"  order="addtime desc">
+        <dl class="w128"><dt><a href="{$video.readurl}" target="_blank" title="{$video.title}"><img alt="{$video.title}" src="{$video.picurl}"  onerror="this.src='{$webpath}views/images/nophoto.jpg'" class="loading"></a></dt><dd><p class="p1"><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,7}</a></p><p class="p2"></p></dd></dl>
+                    </gxcms> 
+		</div>
+        <div class="list">
+		<gxcms name="video" cid="3" limit="11,10"  order="addtime desc">
+		<dl class="w128"><dd><em><a href="{$video.readurl}" target="_blank" title="{$video.title}">·{$video.title|get_replace_html=0,8}</a></em></dd></dl>
+		</gxcms> 
+		</div>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    
+	
+    <div class="rank" id="j-rankcomic">
+      <h4><span><a class="active" href="javascript:void(0);">周</a> <a href="javascript:void(0);">月</a> <a href="javascript:void(0);">总</a></span><em class="e07"><a  target="_blank" title="动漫排行">动漫排行</a></em></h4>
+      <ol class="active">
+	    <gxcms name="video" limit="18" cid="3" order="weekhits desc">
+                   <li><span>{$video.weekhits}℃</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,13}</a></li>
+                    </gxcms>
+		</ol>
+      <ol>
+		 <gxcms name="video" limit="18" cid="3" order="monthhits desc">
+                   <li><span>{$video.monthhits}℃</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,13}</a></li>
+                    </gxcms>
+					  </ol>
+      <ol>
+		 <gxcms name="video" limit="18" cid="3" order="hits desc">
+                   <li><span>{$video.hits}℃</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,13}</a></li>
+                    </gxcms>
+					 </ol>
+    </div>
+  </div>
+</div>
+<!-- 综艺 -->
+<div class="variety">
+  <div class="left">
+    <div class="title">
+      <h2 class="H206"><span><a target="_blank" href="{$webpath}?s=video/lists/id/4.html" title="更多&gt;&gt;">更多&gt;&gt;</a></span></h2>
+    </div>
+    <div class="viscera">
+      <div class="texInfos">
+        <div class="list">
+		<gxcms name="video" cid="4" limit="10" order="addtime desc">
+        <dl class="w128"><dt><a href="{$video.readurl}" target="_blank" title="{$video.title}"><img alt="{$video.title}" src="{$video.picurl}"  onerror="this.src='{$webpath}views/images/nophoto.jpg'" class="loading"></a></dt><dd><p class="p1"><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,7}</a></p><p class="p2"></p></dd></dl>
+                    </gxcms> 
+					 </div>
+        <div class="list">
+		<gxcms name="video" cid="4" limit="11,10" order="addtime desc">
+		<dl class="w128"><dd><em><a href="{$video.readurl}" target="_blank" title="{$video.title}">·{$video.title|get_replace_html=0,8}</a></em></dd></dl>
+		</gxcms> 
+		 </div>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+   
+    <div class="rank" id="j-rankzongyi">
+      <h4><span><a class="active" href="javascript:void(0);">周</a> <a href="javascript:void(0);">月</a> <a href="javascript:void(0);">总</a></span><em class="e09"><a  target="_blank" title="综艺排行">综艺排行</a></em></h4>
+      <ol class="active">
+	    <gxcms name="video" limit="18" cid="4" order="weekhits desc">
+                   <li><span>{$video.weekhits}℃</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,13}</a></li>
+                    </gxcms>
+		</ol>
+      <ol>
+		 <gxcms name="video" limit="18" cid="4" order="monthhits desc">
+                   <li><span>{$video.monthhits}℃</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,13}</a></li>
+                    </gxcms>
+					  </ol>
+      <ol>
+		 <gxcms name="video" limit="18" cid="4" order="hits desc">
+                   <li><span>{$video.hits}℃</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,13}</a></li>
+                    </gxcms>
+					 </ol>
+    </div>
+  </div>
+</div>
+<!-- 综艺结束 -->
+
+
+<!--体育-->
+<div class="variety">
+  <div class="left">
+    <div class="title">
+      <h2 class="H211"><span><a target="_blank" href="{$webpath}?s=video/lists/id/5.html" title="更多&gt;&gt;">更多&gt;&gt;</a></span></h2>
+    </div>
+    <div class="viscera">
+      <div class="texInfos">
+        <div class="list">
+		<gxcms name="video" cid="5" limit="10" order="addtime desc">
+        <dl class="w128"><dt><a href="{$video.readurl}" target="_blank" title="{$video.title}"><img alt="{$video.title}" src="{$video.picurl}"  onerror="this.src='{$webpath}views/images/nophoto.jpg'" class="loading"></a></dt><dd><p class="p1"><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,7}</a></p><p class="p2"></p></dd></dl>
+                    </gxcms> 
+					 </div>
+        <div class="list">
+		<gxcms name="video" cid="5" limit="11,10" order="addtime desc">
+		<dl class="w128"><dd><em><a href="{$video.readurl}" target="_blank" title="{$video.title}">·{$video.title|get_replace_html=0,8}</a></em></dd></dl>
+		</gxcms> 
+		 </div>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+   
+    <div class="rank" id="j-ranksport">
+      <h4><span><a class="active" href="javascript:void(0);">周</a> <a href="javascript:void(0);">月</a> <a href="javascript:void(0);">总</a></span><em class="e11"><a  target="_blank" title="体育排行">体育排行</a></em></h4>
+      <ol class="active">
+	    <gxcms name="video" limit="18" cid="5" order="weekhits desc">
+                   <li><span>{$video.weekhits}℃</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,13}</a></li>
+                    </gxcms>
+		</ol>
+      <ol>
+		 <gxcms name="video" limit="18" cid="5" order="monthhits desc">
+                   <li><span>{$video.monthhits}℃</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,13}</a></li>
+                    </gxcms>
+					  </ol>
+      <ol>
+		 <gxcms name="video" limit="18" cid="5" order="hits desc">
+                   <li><span>{$video.hits}℃</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,13}</a></li>
+                    </gxcms>
+					 </ol>
+    </div>
+  </div>
+</div>
+<!--体育结束-->
+
+<!--纪录片-->
+<div class="variety">
+  <div class="left">
+    <div class="title">
+      <h2 class="H208"><span><a target="_blank" href="{$webpath}?s=video/lists/id/6.html" title="更多&gt;&gt;">更多&gt;&gt;</a></span></h2>
+    </div>
+    <div class="viscera">
+      <div class="texInfos">
+        <div class="list">
+		<gxcms name="video" cid="6" limit="10" order="addtime desc">
+        <dl class="w128"><dt><a href="{$video.readurl}" target="_blank" title="{$video.title}"><img alt="{$video.title}" src="{$video.picurl}"  onerror="this.src='{$webpath}views/images/nophoto.jpg'" class="loading"></a></dt><dd><p class="p1"><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,7}</a></p><p class="p2"></p></dd></dl>
+                    </gxcms> 
+					 </div>
+        <div class="list">
+		<gxcms name="video" cid="6" limit="11,10" order="addtime desc">
+		<dl class="w128"><dd><em><a href="{$video.readurl}" target="_blank" title="{$video.title}">·{$video.title|get_replace_html=0,8}</a></em></dd></dl>
+		</gxcms> 
+		 </div>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+   
+    <div class="rank" id="j-rankdocumentary">
+      <h4><span><a class="active" href="javascript:void(0);">周</a> <a href="javascript:void(0);">月</a> <a href="javascript:void(0);">总</a></span><em class="e12"><a  target="_blank" title="纪录片排行">纪录片排行</a></em></h4>
+      <ol class="active">
+	    <gxcms name="video" limit="18" cid="6" order="weekhits desc">
+                   <li><span>{$video.weekhits}℃</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,13}</a></li>
+                    </gxcms>
+		</ol>
+      <ol>
+		 <gxcms name="video" limit="18" cid="6" order="monthhits desc">
+                   <li><span>{$video.monthhits}℃</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,13}</a></li>
+                    </gxcms>
+					  </ol>
+      <ol>
+		 <gxcms name="video" limit="18" cid="6" order="hits desc">
+                   <li><span>{$video.hits}℃</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,13}</a></li>
+                    </gxcms>
+					 </ol>
+    </div>
+  </div>
+</div>
+<!--纪录片结束-->
+
+
+<div class="Map">
+  <div class="left"> 
+     <div class="title">
+    <h2 class="H210"></h2>
+  </div>
+  <ul>
+    <gxcms name="link" limit="100" order="type asc,oid desc">
+    <eq name="link.type" value="1">
+    <li><a href="{$link.url}" target="_blank">{$link.title|get_replace_html=0,8}</a></li>
+    <else />
+    <li><a href="{$link.url}" target="_blank"><img alt="{$link.title}" src="{$link.logo}"  width="88" height="31"></a></li>
+    </eq>
+    </gxcms>
+	 </ul>
+  </div>
+</div>
+
+<include file="footer" />
+<script type="text/javascript">
+	LETV.include(['common.js','index.js'],function(){
+	page_impl();
+},'{$tplpath}');
+</script>
+</body>
+</html>
+

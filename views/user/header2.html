@@ -1,0 +1,56 @@
+<script language="JavaScript" type="text/javascript" src="{$tplpath}template.js"></script>
+<style type="text/css">
+<!--
+.STYLE1 {
+	color: #000000;
+	font-weight: bold;
+}
+.STYLE2 {
+	color: #FF0000;
+	font-weight: bold;
+}
+-->
+</style>
+<div class="Header">
+<div class="Atop">
+    <a title="{$webname}" class="logo_a" href="{$webpath}"><img alt="{$webname}" src="{$tplpath}image/logo.png"></a>
+	<div class="topnavbox">
+		<div class="topdown">
+			<div class="topTXT">
+			<form action="{$webpath}index.php?s=video/search" method="post" name="search" id="search" >
+				<input type="text" class="inputText" id="wd" name="wd" value="请输入电影或演员名!-----未搜到影片请点后面的求片!" onclick="this.value = ''" maxLength="26" />
+				<input type="submit" class="inputBtn"  value="" />
+			  </form>
+			</div>
+			<p>{$hotkey}</p>
+		</div>
+		<div class="topup">
+			<div id="agkjl">
+			  <p align="center">
+			  <div id="ckepop">
+			    <p><a href="?s=guestbook/lists.html" class="STYLE2">求片</a>&nbsp;|&nbsp;<a href="javascript:void(0)" id="fav">收藏本站</a></p>
+			  </div>
+		  </div>
+		</div>
+	</div>
+
+</div>
+</div>
+<div class="navbar"> <div class="Boxmenu">
+	<div class="Anav">
+        <div class="AnavL w">
+            <a href="{$webpath}" title="{$webname}">首 页</a>
+			 <gxcms name="menu"><a href="{$menu.showurl}">{$menu.cname}</a> </gxcms>
+			 <a href="{$specialurl}" >专题</a>
+			 <a href="{$topurl}" >排行</a>
+      </div>
+        <div class="AnavR w1">
+            <div class="AnavRl">
+                <div id="Login">
+                    <a href="index.php?s=user/login">登陆</a>&nbsp;|&nbsp;<a href="index.php?s=user/reg">注册</a>
+                </div>
+            </div>
+        </div>
+	</div>	
+</div>
+</div>

@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$webtitle}</title>
+<meta name="keywords" content="{$keywords}">
+<meta name="description" content="{$description}">
+<link rel="shortcut icon" href="{$webpath}favicon.png" />
+<include file="system" />
+<link rel="stylesheet" type="text/css" href="{$tplpath}top.css" />
+<link rel="stylesheet" type="text/css" href="{$tplpath}list.css" />
+<link rel="stylesheet" type="text/css" href="{$tplpath}vod.css" />
+<script language="javascript">
+    $(document).ready(function(){
+    var content="发布留言求片吧或者分享您的看法吧，最多200个字。";
+	$('#content').focus(function(){
+		if($('#content').val()==content){
+			$('#content').val('');
+		}
+	});
+	$('#content').blur(function(){
+		if($('#content').val()==''){
+			$('#content').val(content);
+		}
+	});	
+	$("#guestbook").submit( function () {
+		if($('#content').val().length>200){
+			alert('您输入的留言信息过长，请删减一些！');
+  			return false;
+		}
+		if($('#content').val()==content){
+			alert('请输入留言信息！');
+  			return false;
+		}		
+	}); 
+});
+</script>
+</head>
+<body>
+<include file="header" />
+<div class="series">
+	<div class="left">
+		<div class="Kbox">
+			<h3><span class="on">留言求片</span></h3>
+			<div class="Kcont">
+				<ol class="on" >
+				   <li>
+					<div class="commbox">
+					<form action="{$webpath}index.php?s=Guestbook/Insert" method="post" name="guestbook" id="guestbook">
+                               <input name="errid" type="hidden" value="{$id}" />  
+					   <div class="commtxt">
+                                                <textarea name="content"  id="content" rows="5" class="commTextarea" maxlength="200">{$content|default='发布留言求片吧或者分享您的看法吧，最多200个字。'}</textarea>
+							<div class="angle"></div>
+						</div>
+						<div class="commsumit">
+							<div class="hangD">
+								<div class="fl"></div>
+								<div class="fr">
+									<span class="j-msg" style="color:#F00; padding-right:10px;"></span>
+                                        <input type="submit" id="submitCommBtn" name="submit" value="发表" class="sumitBg">
+								</div>
+							</div>
+						</div>
+                                              </form>
+						<div class="commlist">
+                                        <gxfor name="list_guestbook" id="guestbook">
+						<div class="listA">
+								<div class="txt"><div><b>第{$guestbook.floor}楼:&nbsp;{$guestbook.username|htmlspecialchars|remove_xss}</b> {$guestbook.addtime|get_color_date='Y-m-d H:i',###}</div><div>{$guestbook.content|htmlspecialchars|remove_xss}</div></div>
+							</div>
+                                                  <notempty name="guestbook.recontent">
+                                        <div class="re_cont"><p class="re_title">站长回复：</p><p>{$guestbook.recontent}</p></div>
+                                                   </notempty>
+                                               </gxfor>
+                                          <gt name="count" value="10"><div class="pages">{$pages}</div></gt>
+					</div>
+						 					
+                                     </div>
+					</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+	<div class="right">
+		<div class="rank j-rank"><h4>热门排行</h4>
+			<ol>
+			<gxcms name="video" cid="1,2,3,4" limit="10" order="hits desc"> 
+        <li><span>{$video.addtime|get_color_date='m-d',###}</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,15}</a></li>
+        </gxcms>
+         </ol>
+		</div>
+
+		<div class="rank j-rank mt10"><h4>最近更新</h4>
+			<ol>
+              <gxcms name="video"  limit="10" order="addtime desc">
+        <li><span>{$video.addtime|get_color_date='m-d',###}</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,15}</a></li>
+        </gxcms>
+                    </ol>
+		</div>
+	</div>
+</div>
+<include file="footer" />
+</body>
+</html>

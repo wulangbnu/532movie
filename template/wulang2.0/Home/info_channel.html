@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$webtitle}</title>
+<meta name="keywords" content="{$ckeywords}{$keywords}">
+<meta name="description" content="{$cdescription}{$description}">
+<link rel="shortcut icon" href="{$webpath}favicon.png" />
+<link rel="stylesheet" type="text/css" href="{$tplpath}top.css" />
+<link rel="stylesheet" type="text/css" href="{$tplpath}list.css" />
+<include file="system" />
+</head>
+<body>
+<include file="header" />
+<div class="box_n">
+	<div class="main_n">
+		<div class="list_l">
+			
+			<div class="ranks j-rank"><h4>热门{$cname}排行</h4>
+				<ol>
+				<gxcms name="info" cid="'.$cid.'" limit="10" order="hits desc">
+                 <li><span></span><a href="{$info.readurl}" target="_blank" title="{$info.title}">{$info.title|get_replace_html=0,20}</a></li>
+				 </gxcms> 
+				</ol>
+			</div>
+			
+			
+			<div class="ranks j-rank"><h4>热门影视排行</h4>
+				<ol>
+				<gxcms name="video" cid="1,2,3,4,5,6" limit="10" order="hits desc"> 
+        <li><span>{$video.hits}℃</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,15}</a></li>
+        </gxcms>
+		</ol>
+			</div>
+			
+		</div>
+
+		<div class="list_r">
+			<div class="longtit">
+				<div class="fl">您现在的位置{$navtitle}</div>
+				<div class="fr aves">
+				</div>
+			</div>
+            <ol class="on" id="tabx_c_1">
+<div class="soyall">
+ <gxlist name="info" limit="20" order="'.$order.'" >
+        <div class="newlist">
+				<dl class="news_dl">
+					  <dt><span>{$info.addtime|get_color_date='m-d',###}</span><a href="{$info.readurl}" target="_blank">{$info.title}</a></dt>
+					  <dd> {$info.content|get_replace_html=0,200,'utf-8',true}......[<a href="{$info.readurl}" target="_blank">阅读全文</a>] </dd>
+					  <dd class="time"></dd>
+				</dl>
+			</div>
+      </gxlist>		
+<if condition="$count gt 10"><div class="page">{$pages}</div></if>	
+			</div>
+            </ol>
+
+		</div>
+	</div>
+</div>
+<include file="footer" />
+</body>
+</html>

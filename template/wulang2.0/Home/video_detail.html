@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$webtitle}</title>
+<meta name="keywords" content="{$ckeywords}{$keywords}">
+<meta name="description" content="{$cdescription}{$description}">
+<link rel="shortcut icon" href="{$webpath}favicon.png" />
+<link rel="stylesheet" type="text/css" href="{$tplpath}top.css" />
+<link rel="stylesheet" type="text/css" href="{$tplpath}list.css" />
+<link rel="stylesheet" type="text/css" href="{$tplpath}vod.css" />
+<include file="system" />
+</head>
+<include file="header" />
+<div class="series">
+	<div class="left">
+		<div class="road"><span>您现在的位置：</span>{$navtitle}</div>
+		<div class="tvgut1">
+		
+			<div class="tgpic">
+			<a class="fancybox-thumbs" data-fancybox-group="thumb" href="{$picurl}">
+	        <img src="{$picurl}" title="点击查看更多海报和剧照"  onerror="this.src='{$webpath}views/images/nophoto.jpg'" class="loading" width="190" height="266" />
+		     </a>
+		     <div id="moviepics" style="display:none"></div>
+			</div>
+			
+			
+			<div class="tgmsg">
+				<div class="tgmsg1"><h1><a href="{$readurl}" class="title" title="{$title}">{$title}</a></h1></div>
+				<ul>
+				    <li><em>地区：</em>{$area|default='未知'}</li>
+				    <li><em>导演：</em><notempty name="director">{$director|get_actor_url}<else />未知</notempty></li>
+				    <li><em>编剧：</em><notempty name="writer">{$writer|get_actor_url}<else />未知</notempty></li>
+				    <li><em>主演：</em><notempty name="actor">{$actor|get_actor_url}<else />未知</notempty></li>
+				    <li><em>语言：</em>{$language|default='未知'}</li>
+				    <li><em>片长：</em>{$duration|default='未知'}</li>
+				    <li><em>上映：</em>{$year|default='未录入'}</li>
+				    <li><em>更新：</em>{$addtime|get_color_date='Y-m-d',###}</li>
+				</ul>
+				<div style="margin:10px 0px 0px 20px;">
+					<div id="Scorebox">
+		            <span id="Score">{$score}</span>
+		             <span id="Scorenum">{$score}</span>分<br />(<span id="Scoreer">{$scoreer}</span>人评价过此片) 
+				    </div>      
+                	<notempty name="trailer">
+                		<div style="margin-top:10px"><a class="fancybox fancybox.ajax" href="{$playurl_first}" title="{$title}预告片">
+                    	<img src="{$tplpath}image/movie_trailer.png"/></a></div>
+                	</notempty>
+           		</div>
+                
+			</div>
+		</div>	
+        <div class="tvgut2">
+
+			<div class="title" id="myTab1">
+			    <span class="cur">BT下载</span>	
+			</div>
+			<div class="gutpics">
+             <gxfor name="downlist" id="video">
+             <dl><dt><a href="{$video.playpath}" target="_blank">[{$video.playname}]</a></dt></dl>
+             </gxfor>
+            </div>
+
+		  <div class="gutintro"><h2>{$title}剧情介绍：</h2>{$content|htmlspecialchars_decode}</div>
+		</div>
+	
+  <if condition="C('user_comment') eq 1">
+<div class="Kbox">
+	<h3><span class="on">发表评论</span></h3>
+	<div class="Kcont">
+		<div id="Comments" class="commbox"></div>
+	</div>
+</div>
+</if>
+	</div>
+	<div class="right">
+		<div class="rank j-rank"><h4><a href="{$topurl}" target="_blank">热门{$cname}排行</a></h4>
+			<ol>
+			<gxcms name="video" cid="'.$cid.'" limit="10" order="weekhits desc"> 
+        <li><span>{$video.weekhits}℃</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,15}</a></li>
+        </gxcms>			
+		 </ol>
+		</div>
+        
+		<div class="rank j-rank mt10"><h4><a href="{$topurl}" target="_blank">网友最爱{$cname}</a></h4>
+			<ol>
+			<gxcms name="video" cid="'.$cid.'" limit="10" order="score desc"> 
+        <li><span>{$video.score}分</span><a href="{$video.readurl}" target="_blank" title="{$video.title}">{$video.title|get_replace_html=0,15}</a></li>
+        </gxcms>	
+			</ol>
+		</div>
+		
+	</div>
+</div>
+{$inserthits}
+<include file="footer" />
+<notempty name="posters">
+<script type="text/javascript">
+    var posters="{$posters}";
+    posters+=","+"{$stills}";
+   var pics = new Array;
+   pics = posters.split(",");
+   var content='';
+   for(var i=0;i<pics.length;i++)
+   content+='<a class="fancybox-thumbs" data-fancybox-group="thumb" href="'+ pics[i] +'">'+i+'</a>';
+   $("#moviepics").html(content);
+</script>
+</notempty>
+</body>
+</html>

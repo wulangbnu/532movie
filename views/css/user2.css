@@ -1,0 +1,80 @@
+* {
+	padding:0px;
+	margin:0px;
+	font-family:"微软雅黑","黑体",ArialVerdana, Arial, Helvetica, sans-serif;
+}
+body {
+	margin: 0px;
+	font-size:12px;
+	color: #888;
+}
+input {
+	vertical-align:middle;
+}
+ul,li{
+	list-style:none
+}
+a {
+	color:#2366A8;
+	text-decoration: none;
+}
+a:hover {
+	color:#2366A8;
+	text-decoration:underline;
+}
+.login {
+	width:300px;
+	background:#FFF;
+	padding-bottom:10px;
+	margin-top: 30px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+}
+.login .right{
+	float:right;
+	width:240px;
+}
+.login .right li{
+	clear:both;
+	margin:20px 0px;
+	list-style:none;
+}
+.login .right li input {
+	font-size:12px;
+	border:1px solid #dcdcdc;
+	background:url(../images/admin/login_input_bg.gif) left top no-repeat;
+	height: 18px;
+	line-height: 18px;
+	padding-right: 2px;
+	padding-left: 2px;
+}
+.login .right li .input {
+	width:64px;
+	height:24px;
+	border:none;
+	cursor:pointer;
+	background-color: #fff;
+	background-image: url(../images/admin/login_submit.gif);
+	background-repeat: no-repeat;
+}
+.login .right li .input2  {
+	background-image: url(../images/user/reg_submit.gif);
+}
+.login .right .reginput{
+	padding-left:12px;
+}
+.login .regleft{
+	float:left;
+	width:300px;
+	height:300px;
+	background:url(../images/user/login.gif) no-repeat 10px;
+}
+.login .regleft span{
+	float:right;
+	padding-right:10px;
+	padding-top:110px;
+	font-size:14px;
+	font-weight:bold;
+	color:#666666
+}

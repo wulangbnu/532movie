@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>添加影视</title>
+<meta name="keywords" content="{$keywords}">
+<meta name="description" content="{$description}">
+<link rel="shortcut icon" href="{$webpath}favicon.png" />
+<link rel="stylesheet" type="text/css" href="{$tplpath}top.css" />
+<link rel="stylesheet" type="text/css" href="{$tplpath}list.css" />
+<include file="system" />
+</head>
+<body>
+<include file="header" />
+
+
+<form style="margin:100px auto; width:500px" action="{:U('action')}" method="post" enctype='multipart/form-data'>
+  <label>豆瓣ID</label> <input  type="text" name="id" value="" />
+  <input  type="file" name="torrent" />
+  <br/><br/><br/>
+  <button type="submit">确定</button>
+</form>
+
+
+<include file="footer" />
+</body>
+</html>

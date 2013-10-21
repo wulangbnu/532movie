@@ -1,0 +1,141 @@
+<div class="footer">
+   <br/>
+  <p>Copyright &copy; 2011-2013 <a href="{$weburl}">{$webname}</a> All rights reserved.</p>
+  <p>Anything about the Problems, Please Contact Admin:<a href="mailto:wulang@mail.bnu.edu.cn">BNU532</a>
+  </p>
+  <br>
+</div>
+
+
+	<script type="text/javascript" src="{$tplpath}js/lib/jquery-1.9.0.min.js"></script>
+
+	<script type="text/javascript" src="{$tplpath}js/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+	<script type="text/javascript" src="{$tplpath}js/source/jquery.fancybox.js?v=2.1.4"></script>
+	<link rel="stylesheet" type="text/css" href="{$tplpath}js/source/jquery.fancybox.css?v=2.1.4" media="screen" />
+
+	<link rel="stylesheet" type="text/css" href="{$tplpath}js/source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+	<script type="text/javascript" src="{$tplpath}js/source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+
+	<link rel="stylesheet" type="text/css" href="{$tplpath}js/source/helpers/jquery.fancybox-thumbs.css?v=1.0.7" />
+	<script type="text/javascript" src="{$tplpath}js/source/helpers/jquery.fancybox-thumbs.js?v=1.0.7"></script>
+
+	<script type="text/javascript" src="{$tplpath}js/source/helpers/jquery.fancybox-media.js?v=1.0.5"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+	
+			$('.fancybox').fancybox({openEffect : 'elastic'});
+
+			$(".fancybox-effects-a").fancybox({
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+					overlay : {
+						speedOut : 0
+					}
+				}
+			});
+
+			$(".fancybox-effects-b").fancybox({
+				openEffect  : 'none',
+				closeEffect	: 'none',
+
+				helpers : {
+					title : {
+						type : 'over'
+					}
+				}
+			});
+
+			$(".fancybox-effects-c").fancybox({
+				wrapCSS    : 'fancybox-custom',
+				closeClick : true,
+
+				openEffect : 'none',
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					overlay : {
+						css : {
+							'background' : 'rgba(238,238,238,0.85)'
+						}
+					}
+				}
+			});
+
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+				helpers : {
+					overlay : null
+				}
+			});
+
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+
+
+			$('.fancybox-thumbs').fancybox({
+				prevEffect : 'fade',
+				nextEffect : 'fade', 
+				closeBtn  : false,
+				arrows    : true,
+				nextClick : true,
+
+				helpers : {
+					thumbs : {
+						width  : 50,
+						height : 50
+					},
+					title : {
+						type : 'inside'
+					},
+					buttons	: {position : 'bottom'}
+				},
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+
+			});
+
+		});
+	</script>
+	<style type="text/css">
+		.fancybox-custom .fancybox-skin {
+			box-shadow: 0 0 50px #222;
+		}
+	</style>
+
+
+
+
